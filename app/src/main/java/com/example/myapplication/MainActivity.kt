@@ -16,7 +16,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Text(text = "Witaj!")
+            Hello("Przemysław")
         }
+    }
+
+    @Composable
+    fun Hello(name: String){
+        Text(text = "Witaj $name!")
     }
 }
