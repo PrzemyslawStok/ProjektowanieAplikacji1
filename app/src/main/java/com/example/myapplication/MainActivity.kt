@@ -25,13 +25,27 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Add(10.0, 5.0)
+            MyApplicationTheme {
+                Surface {
+                    Add(10.0, 5.0)
+                }
+            }
         }
     }
 
     @Composable
     fun Hello(name: String) {
         Text(text = "Witaj $name!")
+    }
+
+    @Composable
+    fun PrintText(){
+        val a = 10
+        var b = 20.0f
+        b = 25.0.toFloat()
+        val str = "abcde $a"
+
+        Text("a=$a")
     }
 
     @Composable
@@ -42,8 +56,9 @@ class MainActivity : ComponentActivity() {
                 contentDescription = "Simple image"
             )
             Column {
-                Text(text = "a=$a")
-                Text(text = "b=$b")
+                //Text(PrintText())
+                //Text(text = "a=$a")
+                //Text(text = "b=$b")
             }
             Image(
                 painter = painterResource(id = R.mipmap.ic_image),
@@ -59,6 +74,11 @@ class MainActivity : ComponentActivity() {
     @Preview
     @Composable
     fun PreviewScreen() {
-        Add(2.0, 1.0)
+        MyApplicationTheme {
+            Surface {
+                Add(2.0, 1.0)
+
+            }
+        }
     }
 }
