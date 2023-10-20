@@ -39,12 +39,22 @@ class MainActivity : ComponentActivity() {
     }
 
     fun PrintText(): String {
-        val a = 11
-        var b = 20.0f
-        b = 25.0.toFloat()
-        val str = "abcde $a"
+        var textToReturn = "["
 
-        return "a=$a"
+        val list = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+        /*for (number in 1..10 step 2) {
+            if (number < 10) {
+                textToReturn += "$number"
+            }
+        }
+         */
+
+        for (i in 0..list.size - 1) {
+            textToReturn += "${list[i]},"
+        }
+
+        return textToReturn + "]"
     }
 
     fun PrintText1(a: Int) = "a=$a"
