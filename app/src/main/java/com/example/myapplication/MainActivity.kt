@@ -38,15 +38,16 @@ class MainActivity : ComponentActivity() {
         Text(text = "Witaj $name!")
     }
 
-    @Composable
-    fun PrintText(){
-        val a = 10
+    fun PrintText(): String {
+        val a = 11
         var b = 20.0f
         b = 25.0.toFloat()
         val str = "abcde $a"
 
-        Text("a=$a")
+        return "a=$a"
     }
+
+    fun PrintText1(a: Int) = "a=$a"
 
     @Composable
     fun Add(a: Double, b: Double) {
@@ -56,7 +57,8 @@ class MainActivity : ComponentActivity() {
                 contentDescription = "Simple image"
             )
             Column {
-                //Text(PrintText())
+                Text(PrintText())
+                Text(PrintText1(10))
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
             }
