@@ -43,15 +43,13 @@ class MainActivity : ComponentActivity() {
 
         val list = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
-        /*for (number in 1..10 step 2) {
-            if (number < 10) {
-                textToReturn += "$number"
-            }
-        }
-         */
+
 
         for (i in 0..list.size - 1) {
-            textToReturn += "${list[i]},"
+            if(i!=list.size-1)
+                textToReturn += "${list[i]},"
+            else
+                textToReturn += "${list[i]}"
         }
 
         return textToReturn + "]"
