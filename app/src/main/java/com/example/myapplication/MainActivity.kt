@@ -6,16 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -41,13 +37,13 @@ class MainActivity : ComponentActivity() {
     fun PrintText(): String {
         var textToReturn = "["
 
-        val list = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-        list.map { it * 2 }
+        var list = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        list = list.map { it * 2 }.toMutableList()
+
         //for (i in 20..31)
         //    list.add(i)
 
         //list.addAll(listOf(1, 2, 3, 4, 5))
-
 
         for (i in 0..list.size - 1) {
             if (i != list.size - 1)
@@ -57,6 +53,10 @@ class MainActivity : ComponentActivity() {
         }
 
         return textToReturn + "]"
+    }
+
+    fun PrintList(list: List<Int>): String {
+        return ""
     }
 
     fun PrintText1(a: Int) = "a=$a"
@@ -69,8 +69,9 @@ class MainActivity : ComponentActivity() {
                 contentDescription = "Simple image"
             )
             Column {
-                Text(PrintText())
-                Text(PrintText1(10))
+                //Text(PrintText())
+                Text(PrintList(listOf(1, 2, 3, 4, 5)))
+                //Text(PrintText1(10))
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
             }
