@@ -34,11 +34,8 @@ class MainActivity : ComponentActivity() {
         Text(text = "Witaj $name!")
     }
 
-    fun PrintText(): String {
+    fun PrintList(list: List<Int>): String {
         var textToReturn = "["
-
-        var list = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-        list = list.map { it * 2 }.toMutableList()
 
         for (i in 0..list.size - 1) {
             if (i != list.size - 1)
@@ -46,12 +43,7 @@ class MainActivity : ComponentActivity() {
             else
                 textToReturn += "${list[i]}"
         }
-
         return textToReturn + "]"
-    }
-
-    fun PrintList(list: List<Int>): String {
-        return ""
     }
 
     fun PrintText1(a: Int) = "a=$a"
@@ -59,6 +51,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun Add(a: Double, b: Double) {
         val list = listOf(1, 2, 3, 4, 5)
+
         Row {
             Image(
                 painter = painterResource(id = R.mipmap.ic_launcher),
