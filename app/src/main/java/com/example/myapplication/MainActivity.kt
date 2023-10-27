@@ -41,12 +41,16 @@ class MainActivity : ComponentActivity() {
     fun PrintText(): String {
         var textToReturn = "["
 
-        val list = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        val list = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        list.map { it * 2 }
+        //for (i in 20..31)
+        //    list.add(i)
 
+        //list.addAll(listOf(1, 2, 3, 4, 5))
 
 
         for (i in 0..list.size - 1) {
-            if(i!=list.size-1)
+            if (i != list.size - 1)
                 textToReturn += "${list[i]},"
             else
                 textToReturn += "${list[i]}"
