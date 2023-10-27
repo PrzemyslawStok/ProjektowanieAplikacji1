@@ -40,11 +40,6 @@ class MainActivity : ComponentActivity() {
         var list = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
         list = list.map { it * 2 }.toMutableList()
 
-        //for (i in 20..31)
-        //    list.add(i)
-
-        //list.addAll(listOf(1, 2, 3, 4, 5))
-
         for (i in 0..list.size - 1) {
             if (i != list.size - 1)
                 textToReturn += "${list[i]},"
