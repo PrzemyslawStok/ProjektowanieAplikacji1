@@ -58,6 +58,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun Add(a: Double, b: Double) {
+        val list = listOf(1, 2, 3, 4, 5)
         Row {
             Image(
                 painter = painterResource(id = R.mipmap.ic_launcher),
@@ -65,7 +66,7 @@ class MainActivity : ComponentActivity() {
             )
             Column {
                 //Text(PrintText())
-                Text(PrintList(listOf(1, 2, 3, 4, 5)))
+                Text(PrintList(list))
                 //Text(PrintText1(10))
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
