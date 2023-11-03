@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -55,7 +56,7 @@ class MainActivity : ComponentActivity() {
         val newList: MutableList<Int> = mutableListOf()
 
         for (element in list) {
-            val a = element + f(element)
+            val a = f(element)
             newList.add(a)
         }
 
@@ -89,6 +90,14 @@ class MainActivity : ComponentActivity() {
                 //Text(PrintText1(10))
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
+                Row {
+                    val list1 = mutableListOf(1,2,3,4,5)
+                    Text(PrintList(list1))
+                    Button(onClick = { }) {
+                        Text(text = "Dodaj element")
+                        list1.add(1)
+                    }
+                }
             }
             Image(
                 painter = painterResource(id = R.mipmap.ic_image),
