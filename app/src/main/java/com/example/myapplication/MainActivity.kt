@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
         val list = listOf(1, 2, 3, 4, 5)
 
         fun f0(a: Int) = a + 5
-        val f1 = { m: Int -> m + 5 }
+        val f1: (Int) -> Int = { m: Int -> m + 5 }
 
         Row {
             Image(
@@ -68,6 +68,7 @@ class MainActivity : ComponentActivity() {
                 Text(PrintList(list.map { it * it }))
                 Text(PrintList(list.map { it * it * it }))
                 Text(PrintList(list.map { x -> x * x }))
+                Text(PrintList(list.map { f0(it) }))
                 //Text(PrintText1(10))
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
