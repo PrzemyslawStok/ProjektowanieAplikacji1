@@ -60,6 +60,8 @@ class MainActivity : ComponentActivity() {
             Column {
                 //Text(PrintText())
                 Text(PrintList(list))
+                Text(PrintList(list.map { it * it }))
+                Text(PrintList(list.map { it * it * it }))
                 //Text(PrintText1(10))
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
