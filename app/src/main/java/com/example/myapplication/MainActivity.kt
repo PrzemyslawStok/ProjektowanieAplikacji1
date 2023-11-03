@@ -50,12 +50,25 @@ class MainActivity : ComponentActivity() {
 
     fun Mul(a: Double, b: Double) = a * b
 
+    fun ListMap(list: List<Int>, f: (Int) -> (Int)): List<Int> {
+
+        val newList: MutableList<Int> = mutableListOf()
+
+        for (element in list) {
+            val a = element + f(element)
+            newList.add(a)
+        }
+
+        return newList
+    }
+
     @Composable
     fun Add(a: Double, b: Double) {
         val list = listOf(1, 2, 3, 4, 5)
 
         fun f0(a: Int) = a + 5
         val f1: (Int) -> Int = { m: Int -> m + 5 }
+        val mul: (Int, Int) -> Int = { x, y -> x * y }
 
         Row {
             Image(
@@ -65,10 +78,14 @@ class MainActivity : ComponentActivity() {
             Column {
                 //Text(PrintText())
                 Text(PrintList(list))
-                Text(PrintList(list.map { it * it }))
-                Text(PrintList(list.map { it * it * it }))
-                Text(PrintList(list.map { x -> x * x }))
-                Text(PrintList(list.map { f0(it) }))
+                Text(PrintList(ListMap(list, { i -> i + 10 })))
+
+                Text(PrintList(ListMap(list) { i -> i + 10 }))
+                //Text(PrintList(list.map { it * it }))
+                //Text(PrintList(list.map { it * it * it }))
+                //Text(PrintList(list.map { x -> x * x }))
+                //Text(PrintList(list.map { f0(it) }))
+                //Text(PrintList(list.map { mul(it, it) }))
                 //Text(PrintText1(10))
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
