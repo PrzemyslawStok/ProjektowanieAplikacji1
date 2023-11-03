@@ -48,9 +48,14 @@ class MainActivity : ComponentActivity() {
 
     fun PrintText1(a: Int) = "a=$a"
 
+    fun Mul(a: Double, b: Double) = a * b
+
     @Composable
     fun Add(a: Double, b: Double) {
         val list = listOf(1, 2, 3, 4, 5)
+
+        fun f0(a: Int) = a + 5
+        val f1 = { m: Int -> m + 5 }
 
         Row {
             Image(
@@ -62,6 +67,7 @@ class MainActivity : ComponentActivity() {
                 Text(PrintList(list))
                 Text(PrintList(list.map { it * it }))
                 Text(PrintList(list.map { it * it * it }))
+                Text(PrintList(list.map { x -> x * x }))
                 //Text(PrintText1(10))
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
