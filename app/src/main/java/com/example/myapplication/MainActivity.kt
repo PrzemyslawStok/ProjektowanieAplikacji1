@@ -11,8 +11,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
@@ -93,13 +95,23 @@ class MainActivity : ComponentActivity() {
                 //Text(PrintText1(10))
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
+
+                var number = 10
+
+                var number1 by remember {
+                    mutableStateOf(10)
+                }
+
                 Row {
                     val list1 = mutableListOf(1, 2, 3, 4, 5)
                     Text(PrintList(list1))
-                    var number = 10
                     Text("$number")
+                    Text("$number1")
 
-                    Button(onClick = { number += 1 }) {
+                    Button(onClick = {
+                        number += 1
+                        number1 += 1
+                    }) {
                         Text(text = "Dodaj element")
                         list1.add(1)
                     }
@@ -127,3 +139,5 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+
