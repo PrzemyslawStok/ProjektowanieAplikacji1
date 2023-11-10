@@ -11,6 +11,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
@@ -52,7 +54,6 @@ class MainActivity : ComponentActivity() {
     fun Mul(a: Double, b: Double) = a * b
 
     fun ListMap(list: List<Int>, f: (Int) -> (Int)): List<Int> {
-
         val newList: MutableList<Int> = mutableListOf()
 
         for (element in list) {
@@ -82,6 +83,8 @@ class MainActivity : ComponentActivity() {
                 Text(PrintList(ListMap(list, { i -> i + 10 })))
 
                 Text(PrintList(ListMap(list) { i -> i + 10 }))
+
+
                 //Text(PrintList(list.map { it * it }))
                 //Text(PrintList(list.map { it * it * it }))
                 //Text(PrintList(list.map { x -> x * x }))
@@ -91,9 +94,12 @@ class MainActivity : ComponentActivity() {
                 //Text(text = "a=$a")
                 //Text(text = "b=$b")
                 Row {
-                    val list1 = mutableListOf(1,2,3,4,5)
+                    val list1 = mutableListOf(1, 2, 3, 4, 5)
                     Text(PrintList(list1))
-                    Button(onClick = { }) {
+                    var number = 10
+                    Text("$number")
+
+                    Button(onClick = { number += 1 }) {
                         Text(text = "Dodaj element")
                         list1.add(1)
                     }
